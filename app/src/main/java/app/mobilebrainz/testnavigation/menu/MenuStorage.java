@@ -40,9 +40,15 @@ public class MenuStorage {
         addMenu(R.id.feedbackFragment, R.menu.main_bottom_menu, R.menu.main_drawer_menu, R.menu.main_options_menu);
         addMenu(R.id.settingsFragment, R.menu.main_bottom_menu, R.menu.main_drawer_menu, R.menu.main_options_menu);
 
-        addMenu(R.id.userProfilePagerFragment, R.menu.user_bottom_menu, R.menu.main_drawer_menu, R.menu.user_options_menu);
-        addMenu(R.id.userCollectionsFragment, R.menu.user_bottom_menu, R.menu.main_drawer_menu, R.menu.user_options_menu);
-        addMenu(R.id.userRatingsFragment, R.menu.user_bottom_menu, R.menu.main_drawer_menu, R.menu.user_options_menu);
+        addMenu(R.id.userProfilePagerFragment, R.menu.user_bottom_primary_menu, R.menu.main_drawer_menu, R.menu.user_options_menu);
+        addMenu(R.id.userCollectionsFragment, R.menu.user_bottom_primary_menu, R.menu.main_drawer_menu, R.menu.user_options_menu);
+        addMenu(R.id.userRatingsFragment, R.menu.user_bottom_primary_menu, R.menu.main_drawer_menu, R.menu.user_options_menu);
+        addMenu(R.id.userTagsFragment, R.menu.user_bottom_primary_menu, R.menu.main_drawer_menu, -1);
+
+        addMenu(R.id.userUsersFragment, R.menu.user_bottom_secondary_menu, R.menu.main_drawer_menu, -1);
+        addMenu(R.id.userSubscribersFragment, R.menu.user_bottom_secondary_menu, R.menu.main_drawer_menu, -1);
+        addMenu(R.id.userSubscriptionsFragment, R.menu.user_bottom_secondary_menu, R.menu.main_drawer_menu, -1);
+        addMenu(R.id.userRecommendsFragment, R.menu.user_bottom_secondary_menu, R.menu.main_drawer_menu, -1);
 
         addMenu(R.id.artistReleasesFragment, R.menu.artist_bottom_menu, R.menu.artist_drawer_menu, R.menu.artist_options_menu);
         addMenu(R.id.artistRatingsFragment, R.menu.artist_bottom_menu, R.menu.artist_drawer_menu, R.menu.artist_options_menu);

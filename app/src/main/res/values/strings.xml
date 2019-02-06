@@ -17,6 +17,7 @@
     <string name="user_ratings_fragment_label">Ratings</string>
     <string name="user_tags_fragment_label">Tags</string>
     <string name="user_users_fragment_label">Users</string>
+    <string name="menu_more">More</string>
     <string name="user_subscriptions_fragment_label">Subscriptions</string>
     <string name="user_subscribers_fragment_label">Subscribers</string>
     <string name="user_recommends_fragment_label">Recommends</string>

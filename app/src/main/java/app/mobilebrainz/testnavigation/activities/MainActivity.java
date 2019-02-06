@@ -12,6 +12,7 @@ import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewParent;
@@ -131,6 +132,7 @@ public class MainActivity extends BaseActivity implements
                 bottomNavId = bottomMenuId;
             }
             MenuItem bottomMenuItem = bottomNavView.getMenu().findItem(destinationMenu.getDestinationId());
+            Log.i(TAG, "inflateBottomMenu: ");
             if (bottomMenuItem != null && !bottomMenuItem.isChecked()) {
                 bottomMenuItem.setChecked(true);
             }
@@ -272,11 +274,47 @@ public class MainActivity extends BaseActivity implements
         return handled;
     }
 
+
+
     // Custom NavigationUI.setupWithNavController(bottomNavView, navController);
     protected BottomNavigationView.OnNavigationItemSelectedListener initOnBottomNavigationListener() {
         return menuItem -> {
             boolean handled = true;
-            switch (menuItem.getItemId()) {
+            int menuItemId = menuItem.getItemId();
+            switch (menuItemId) {
+
+                // Без навигациии в начальный фрагмент дополнительного нижнего меню,
+                // работает просто как прокрутка меню
+                // c навигацией - убрать ти свитчи и раскомментировать в user_bottom_primary_menu и user_bottom_secondary_menu
+                case R.id.userPrimaryMenu:
+                    bottomNavView.getMenu().clear();
+                    bottomNavId = R.menu.user_bottom_primary_menu;
+                    bottomNavView.inflateMenu(bottomNavId);
+                    /*
+                    //не работает выделение активного айтема
+                    int currDest = navController.getCurrentDestination().getId();
+                    MenuItem bottomMenuItem = bottomNavView.getMenu().findItem(currDest);
+                    Log.i(TAG, "inflateBottomMenu: ");
+                    if (bottomMenuItem != null && !bottomMenuItem.isChecked()) {
+                        bottomMenuItem.setChecked(true);
+                    }
+                    */
+                    break;
+                case R.id.userSecondaryMenu:
+                    bottomNavView.getMenu().clear();
+                    bottomNavId = R.menu.user_bottom_secondary_menu;
+                    bottomNavView.inflateMenu(bottomNavId);
+                     /*
+                    // не работает выделение активного айтема
+                    currDest = navController.getCurrentDestination().getId();
+                    bottomMenuItem = bottomNavView.getMenu().findItem(currDest);
+                    Log.i(TAG, "inflateBottomMenu: ");
+                    if (bottomMenuItem != null && !bottomMenuItem.isChecked()) {
+                        bottomMenuItem.setChecked(true);
+                    }
+                    */
+                    break;
+
                 // navigate with params to other destination
                 //case R.id.usersFragment:
                 //navController.navigate(R.id.userProfilePagerFragment);

@@ -30,7 +30,7 @@
         android:menuCategory="secondary"
         android:title="@string/settings_fragment_label"/>
 
-    <!-- вход в user_bottom_menu через стартовое меню userProfileFragment -->
+    <!-- вход в user_bottom_primary_menu через стартовое меню userProfileFragment -->
     <item
         android:id="@+id/userProfilePagerFragment"
         android:icon="@drawable/ic_person_24"

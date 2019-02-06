@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- С навигацией в начальный фрагмент первичного меню -->
+    <!--
+    <item
+        android:id="@+id/userProfilePagerFragment"
+        android:icon="@drawable/ic_more_horiz_24"
+        android:title="@string/user_profile_pager_fragment_label"/>
+    -->
+
+    <!-- Без навигациии в начальный фрагмент первичного меню, просто как прокрутка меню -->
+
+    <item
+        android:id="@+id/userPrimaryMenu"
+        android:icon="@drawable/ic_more_horiz_24"
+        android:menuCategory="secondary"
+        android:title="@string/menu_more"/>
+
+    <item
+        android:id="@+id/userUsersFragment"
+        android:icon="@drawable/ic_users_24"
+        android:menuCategory="secondary"
+        android:title="@string/user_users_fragment_label"/>
+    <item
+        android:id="@+id/userSubscribersFragment"
+        android:icon="@drawable/ic_collection_add_24"
+        android:menuCategory="secondary"
+        android:title="@string/user_subscribers_fragment_label"/>
+    <item
+        android:id="@+id/userSubscriptionsFragment"
+        android:icon="@drawable/ic_collection_edit_24"
+        android:menuCategory="secondary"
+        android:title="@string/user_subscriptions_fragment_label"/>
+
+    <item
+        android:id="@+id/userRecommendsFragment"
+        android:icon="@drawable/ic_thumb_up_24"
+        android:menuCategory="secondary"
+        android:title="@string/user_recommends_fragment_label"/>
+
+</menu>
