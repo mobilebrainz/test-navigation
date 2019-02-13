@@ -8,6 +8,7 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,12 +17,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewParent;
+import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import app.mobilebrainz.testnavigation.R;
+import app.mobilebrainz.testnavigation.communicator.ShowToolbarTitleCommunicator;
 import app.mobilebrainz.testnavigation.menu.DestinationMenu;
 import app.mobilebrainz.testnavigation.menu.MenuStorage;
 import app.mobilebrainz.testnavigation.menu.UpNavigationStorage;
@@ -32,7 +35,8 @@ import static app.mobilebrainz.testnavigation.adapter.pager.UserProfilePagerAdap
 
 
 public class MainActivity extends BaseActivity implements
-        NavigationView.OnNavigationItemSelectedListener {
+        NavigationView.OnNavigationItemSelectedListener,
+        ShowToolbarTitleCommunicator {
 
     private static final String TAG = "MainActivity";
 
@@ -91,6 +95,7 @@ public class MainActivity extends BaseActivity implements
                 inflateDrawerMenu(destinationMenu);
                 newOptionsNavId = destinationMenu.getOptionsMenuId();
             }
+            showToolbarSubTitle(null);
         });
 
         // убрать, если будет нормально работать app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior" в xml
@@ -326,5 +331,20 @@ public class MainActivity extends BaseActivity implements
             }
             return handled;
         };
+    }
+
+
+    @Override
+    public void showToolbarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    @Override
+    public void showToolbarSubTitle(String subTitle) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setSubtitle(subTitle);
+        }
     }
 }

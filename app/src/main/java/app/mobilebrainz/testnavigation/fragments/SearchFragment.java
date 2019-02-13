@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import androidx.navigation.Navigation;
 import app.mobilebrainz.testnavigation.R;
+import app.mobilebrainz.testnavigation.communicator.ShowToolbarTitleCommunicator;
 import app.mobilebrainz.testnavigation.viewmodels.ArtistAVM;
 import app.mobilebrainz.testnavigation.viewmodels.SearchVM;
 
@@ -40,6 +41,12 @@ public class SearchFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = getViewModel(SearchVM.class);
+
+        if (getActivity() != null) {
+            ShowToolbarTitleCommunicator activity = (ShowToolbarTitleCommunicator) getActivity();
+            activity.showToolbarTitle("Search Artist");
+            activity.showToolbarSubTitle("Metallica");
+        }
     }
 
 }
